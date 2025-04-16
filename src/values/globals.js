@@ -14,8 +14,8 @@ export const PATCH_REQUEST = "patch_request";
 export const DELETE_REQUEST = "delete_request";
 
 export const Roles = {
-    farmer: "farmer",
-    merchant: "merchant",
-    user: "user",
-    admin: "admin"
-}
+  farmer: "lessor",
+  merchant: "merchant",
+  user: "user",
+  admin: "admin",
+};
