@@ -1,7 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
-import {withAuthentication} from "../Session";
 
 import Navigation from "../Navigation";
 import SignIn from "../SignIn";
@@ -12,10 +11,7 @@ import Footer from "../Footer/index";
 import LandDetails from "../LandDetails/LandDetails";
 import Dashboard from "../Dashboard/Dashboard";
 import Blog from "../Blog/Blog";
-import Payments from "../Payments/Payments";
 import ViewLand from "../ViewLand/ViewLand";
-import EditLand from "../EditLand/EditLand";
-import Admin from "../Admin/Admin";
 import BlogList from "../Blog/List";
 import EditBlog from "../Dashboard/Admin/Edit";
 import test from "../Dashboard/Farmer/test";
@@ -39,8 +35,6 @@ const App = () => (
         <Route exact={true} path={ROUTES.BLOG_EDIT} component={EditBlog}/>
         <Route exact={true} path={ROUTES.EDITLAND} component={Dashboard} />
         <Route path={ROUTES.TEST} component={test} />
-        {/*
-    <Route path={ROUTES.ADMIN} component={Admin} />*/}
         <Footer/>
     </Router>
 );
