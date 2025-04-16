@@ -1,18 +1,19 @@
 ### Setting Up
-1. Clone the repository:
+- Install `pnpm` from this link: https://pnpm.io/installation
+- Clone the repository:
 ```bash
 git clone https://github.com/TylerMutai/land-leasing.git
 ```
 
-2. Install dependencies:
+- Install dependencies:
 ```bash
 cd land-leasing
-npm install
+pnpm install
 ```
 
-3. Start the server:
+- Start the server:
 ```bash
-npm start
+pnpm start
 ```
 
-4. Open your browser and navigate to http://localhost:3000
+- Open your browser and navigate to http://localhost:3000
