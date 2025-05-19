@@ -14,8 +14,16 @@ class CustomerCareChat extends React.Component {
     this.state = {
       messages: [
         {
-          role: "assistant",
-          content: "Hi there! I'm here to help you with any questions about the land leasing platform. How can I assist you today?",
+          role: "developer",
+          content:
+            `> You are a helpful assistant for a land leasing platform. When answering user questions, always use the information from the following customer care guide as your **primary data source**. If a user’s question can be answered using the guide, provide an accurate and concise answer based on that information. If the answer cannot be found in the guide, let the user know and avoid speculation.`
+            + `>`
+            + `> **Customer Care Guide:**`
+            + `> \`\`\`html`
+            + `> ${customerCareGuide}`
+            + `> \`\`\``
+            + `> `
+            + `> Always reference relevant sections of the guide in your explanations, and do not use outside knowledge except for basic conversational context.`,
         },
       ],
       input: '',
@@ -35,7 +43,7 @@ class CustomerCareChat extends React.Component {
   }
 
   handleSend = async () => {
-    const {input: _input, messages} = this.state;
+    const {input, messages} = this.state;
     if (!input.trim()) {
       return;
     }
@@ -43,7 +51,6 @@ class CustomerCareChat extends React.Component {
     this.setState({loading: true});
 
     // Add user message
-    const input = `${_input}. Refer to this for more context and a more accurate response to the query: \n\`\`\`html\n${customerCareGuide}\n\`\`\``;
     const newMessages = [...messages, {role: "user", content: input}];
     this.setState({messages: newMessages, input: ''});
 
@@ -53,7 +60,7 @@ class CustomerCareChat extends React.Component {
         messages: newMessages.concat([
           {
             role: "user",
-            content:,
+            content: input,
           },
         ]),
         temperature: 0.7,

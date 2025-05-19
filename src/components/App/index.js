@@ -20,7 +20,7 @@ import CustomerCareChat from "../ChatComponent/CustomerCareChat";
 const App = () => (
   <Router>
     <Navigation/>
-    <CustomerCareChat/>
+    {/*<CustomerCareChat/>*/}
 
     {/* <hr /> */}
     <Route exact path={ROUTES.LANDING} component={Landing}/>

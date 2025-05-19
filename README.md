@@ -22,13 +22,13 @@
   `winget install Schniz.fnm`
 
 - Download and install Node.js:
-  `fnm install 18`
+  `fnm install 16`
 
 - set fnm envs
   `FOR /f "tokens=*" %%z IN ('fnm env --use-on-cd') DO CALL %%z`
 
 - Verify the Node.js version:
-  `node -v # Should print "v18....".`
+  `node -v # Should print "v16.20.2".`
 
 - Verify npm version:
   `npm -v # Should print "8.19.4".`
@@ -56,15 +56,23 @@ pnpm start
 ```
 
 ### For old Windows (not using ARM chips):
+
 #### CMD:
+
 ```bash
 set NODE_OPTIONS=--openssl-legacy-provider
 ```
 
 #### Windows Powershell:
+
 ```bash
 $Env:NODE_OPTIONS='--openssl-legacy-provider'
 ```
 
+#### Increase node heap size:
+
+```bash
+export NODE_OPTIONS='--max-old-space-size=8192'
+```
 
 - Open your browser and navigate to http://localhost:3000
