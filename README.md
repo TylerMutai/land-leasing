@@ -49,4 +49,9 @@ pnpm install
 pnpm start
 ```
 
+### For old Windows (not using ARM chips):
+```bash
+set NODE_OPTIONS=--openssl-legacy-provider
+```
+
 - Open your browser and navigate to http://localhost:3000
