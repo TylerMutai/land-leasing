@@ -1,11 +1,12 @@
 import React from 'react';
-import {Box, Button, Paper, TextField, Typography} from '@mui/material';
-import {Send} from '@mui/icons-material';
+import {Box, Button, Paper, TextField, Typography} from '@material-ui/core';
 import {OpenAI} from 'openai';
-import customerCareGuide from './customer-care-guide.html';
+import customerCareGuide from './customer-care-guide';
+import Markdown from "react-markdown";
 
 const openai = new OpenAI({
-  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+  apiKey: "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",
+  dangerouslyAllowBrowser: true,
 });
 
 class CustomerCareChat extends React.Component {
@@ -24,6 +25,10 @@ class CustomerCareChat extends React.Component {
             + `> \`\`\``
             + `> `
             + `> Always reference relevant sections of the guide in your explanations, and do not use outside knowledge except for basic conversational context.`,
+        },
+        {
+          role: 'assistant',
+          content: 'How can I help you today?',
         },
       ],
       input: '',
@@ -103,10 +108,16 @@ class CustomerCareChat extends React.Component {
     const {messages, input, loading} = this.state;
 
     return (
-      <div style={{display: "flex", flexDirection: "column", position: 'fixed', bottom: "20px", right: "20px"}}>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        position: 'fixed',
+        bottom: "10px",
+        right: "10px",
+      }}>
         <Box sx={{width: '100%', maxWidth: 600, mx: 'auto', p: 2}}>
           <Paper sx={{p: 2, mb: 2}}>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" gutterBottom style={{padding: "12px"}}>
               Customer Care Chat
             </Typography>
             <Box
@@ -121,7 +132,7 @@ class CustomerCareChat extends React.Component {
                 borderRadius: 1,
               }}
             >
-              {messages.map((message, index) => (
+              {messages.filter(m => m.role !== 'developer').map((message, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -132,11 +143,11 @@ class CustomerCareChat extends React.Component {
                     alignSelf: message.role === 'user' ? 'flex-end' : 'flex-start',
                   }}
                 >
-                  <Typography>{message.content}</Typography>
+                  <Typography><Markdown>{message.content}</Markdown></Typography>
                 </Box>
               ))}
             </Box>
-            <Box sx={{display: 'flex', gap: 1}}>
+            <Box sx={{display: 'flex', gap: 1}} style={{padding: "12px"}}>
               <TextField
                 fullWidth
                 variant="outlined"
@@ -149,11 +160,11 @@ class CustomerCareChat extends React.Component {
               <Button
                 variant="contained"
                 color="primary"
-                startIcon={<Send/>}
                 onClick={this.handleSend}
+                style={{whiteSpace: "nowrap"}}
                 disabled={loading || !input.trim()}
               >
-                Send
+                Send >
               </Button>
             </Box>
           </Paper>

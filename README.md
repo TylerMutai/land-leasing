@@ -75,4 +75,10 @@ $Env:NODE_OPTIONS='--openssl-legacy-provider'
 export NODE_OPTIONS='--max-old-space-size=8192'
 ```
 
+### Set up open AI API Key
+```bash
+export OPENAI_API_KEY=
+```
+
+
 - Open your browser and navigate to http://localhost:3000

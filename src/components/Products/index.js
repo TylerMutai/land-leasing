@@ -29,12 +29,12 @@ const InnerDiv = styled.div`
 `;
 
 const Title = styled.h2`
-  font-family: Montserrat;
-  font-style: normal;
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #3d9a04;
-  padding-left: 2em;
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #3d9a04;
+    padding-left: 2em;
 `;
 
 // const SearchInput = styled.input`
