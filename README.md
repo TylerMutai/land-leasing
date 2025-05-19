@@ -56,8 +56,15 @@ pnpm start
 ```
 
 ### For old Windows (not using ARM chips):
+#### CMD:
 ```bash
 set NODE_OPTIONS=--openssl-legacy-provider
 ```
+
+#### Windows Powershell:
+```bash
+$Env:NODE_OPTIONS='--openssl-legacy-provider'
+```
+
 
 - Open your browser and navigate to http://localhost:3000
