@@ -95,7 +95,7 @@ class CustomerCareChat extends React.Component {
   handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      this.handleSend();
+      this.handleSend().then();
     }
   };
 
