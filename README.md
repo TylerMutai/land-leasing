@@ -22,13 +22,19 @@
   `winget install Schniz.fnm`
 
 - Download and install Node.js:
-  `fnm install 16`
+  `fnm install 18`
+
+- set fnm envs
+  `FOR /f "tokens=*" %%z IN ('fnm env --use-on-cd') DO CALL %%z`
 
 - Verify the Node.js version:
-  `node -v # Should print "v16.20.2".`
+  `node -v # Should print "v18....".`
 
 - Verify npm version:
   `npm -v # Should print "8.19.4".`
+
+- Install pnpm
+  `npm install -g pnpm@9.5.0`
 
 ### Clone the repository
 
