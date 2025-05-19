@@ -5,7 +5,7 @@ import customerCareGuide from './customer-care-guide';
 import Markdown from "react-markdown";
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: "",
   dangerouslyAllowBrowser: true,
 });
 
