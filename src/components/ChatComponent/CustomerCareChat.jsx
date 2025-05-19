@@ -105,20 +105,21 @@ class CustomerCareChat extends React.Component {
   };
 
   render() {
-    const {messages, input, loading} = this.state;
+    const {messages, input, loading, isVisible} = this.state;
 
     return (
       <div style={{
-        display: "flex",
         flexDirection: "column",
         position: 'fixed',
         bottom: "10px",
         right: "10px",
+        zIndex: 69,
       }}>
         <Box sx={{width: '100%', maxWidth: 600, mx: 'auto', p: 2}}>
           <Paper sx={{p: 2, mb: 2}}>
-            <Typography variant="h6" gutterBottom style={{padding: "12px"}}>
-              Customer Care Chat
+            <Typography onClick={() => this.setState({isVisible: !isVisible})} variant="h6" gutterBottom
+                        style={{padding: "12px", cursor: "pointer"}}>
+              Customer Care Chat {isVisible ? "Hide" : "Show"}
             </Typography>
             <Box
               id="chat-container"
@@ -131,6 +132,7 @@ class CustomerCareChat extends React.Component {
                 bgcolor: 'background.paper',
                 borderRadius: 1,
               }}
+              style={{display: isVisible ? "block" : "none"}}
             >
               {messages.filter(m => m.role !== 'developer').map((message, index) => (
                 <Box
@@ -147,7 +149,8 @@ class CustomerCareChat extends React.Component {
                 </Box>
               ))}
             </Box>
-            <Box sx={{display: 'flex', gap: 1}} style={{padding: "12px"}}>
+            <Box sx={{display: 'flex', gap: 1}} style={{padding: "12px"}}
+                 style={{display: isVisible ? "flex" : "none"}}>
               <TextField
                 fullWidth
                 variant="outlined"
