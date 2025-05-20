@@ -149,8 +149,8 @@ class CustomerCareChat extends React.Component {
                 </Box>
               ))}
             </Box>
-            <Box sx={{display: 'flex', gap: 1}} style={{padding: "12px"}}
-                 style={{display: isVisible ? "flex" : "none"}}>
+            <Box sx={{display: 'flex', gap: 1}}
+                 style={{display: isVisible ? "flex" : "none",padding: "12px"}}>
               <TextField
                 fullWidth
                 variant="outlined"
@@ -167,7 +167,7 @@ class CustomerCareChat extends React.Component {
                 style={{whiteSpace: "nowrap"}}
                 disabled={loading || !input.trim()}
               >
-                Send >
+                Send {">"}
               </Button>
             </Box>
           </Paper>
